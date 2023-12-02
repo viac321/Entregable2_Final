@@ -5,6 +5,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import "./App.css"
 import "./components/WeatherSearch.jsx"
 
+
 function App() {
   const [weather, setWeather] = useState(null);
  
@@ -27,7 +28,10 @@ function App() {
   }, []);
 
   return (
-    <main className="bg-cover" style={{ backgroundImage: `url(/bg${weather?.weather[0].icon}.webp)` }} >
+    <main
+    className={` h-screen w-screen bg-[url('/clear_sky.webp')] bg-cover bg-center`}
+
+    >
       <div className="flex justify-center items-center h-screen">
         <h1 className="text-4xl"></h1>
         {weather ? (

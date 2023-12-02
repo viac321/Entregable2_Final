@@ -56,12 +56,12 @@ const WeatherDetail = ({ weather }) => {
     >
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] ">
         <section
-          className="bg-W_one/60 text-W_two
-         dark:bg-D_one/40 dark:text-D_four p-2 rounded-md
+          className="text-W_four bg-W_two/60 border-4 border-W_four/60
+         dark:bg-D_one/40 dark:text-D_one p-2 rounded-md
          sm:grid "
         >
           {/*encabezado*/}
-          <h3 className="text-2xl rounded-md text-W_four dark:text-D_four ">
+          <h3 className="text-2xl rounded-md text-W_four dark:text-D_one ">
             {weather.name}, {weather.sys.country}
           </h3>
 
@@ -82,12 +82,13 @@ const WeatherDetail = ({ weather }) => {
 
         {/*sec2: detalles adicionales del clima*/}
         <section
-          className="flex justify-items-center
-           text-2xl sm:col-span-1 sm:block sm:grid-rows-auto gap-1"
+          className="flex justify-items-center text-W_four bg-W_two/60 
+          border-4 border-W_four/60
+          dark:bg-D_one/40 dark:text-D_one rounded-xl
+           text-2xl sm:col-span-1 sm:block sm:grid-rows-auto gap-3 sm:text-base sm:gap-1"
         >
           <div
-            className="text-W_two bg-W_one/60
-           dark:bg-D_one/40 dark:text-D_four rounded-xl p-4
+            className="p-2 gap-1 
            grid justify-items-center sm:col-start-2
            sm:grid sm:justify-items-center"
           >
@@ -98,10 +99,11 @@ const WeatherDetail = ({ weather }) => {
           </div>
 
           <div
-            className="text-W_two bg-W_one/60 
-          dark:bg-D_one/40 dark:text-D_four rounded-xl p-2
-          grid justify-items-center
-          sm:grid sm:justify-items-center"
+            className="p-2 gap-1 border-2 border-y-transparent border-x-W_four/60 
+            sm:border-2 sm:border-x-transparent sm:border-b-transparent 
+            sm:border-t-W_four/60 
+            grid justify-items-center
+            sm:grid sm:justify-items-center"
           >
             <div>
               <img src="/humidity.svg" alt="Humedad" />
@@ -110,9 +112,9 @@ const WeatherDetail = ({ weather }) => {
           </div>
 
           <div
-            className="text-W_two bg-W_one/60
-           dark:bg-D_one/40 dark:text-D_four rounded-xl p-2
-           grid justify-items-center
+            className="p-2 gap-1
+           grid justify-items-center sm:border-2 sm:border-x-transparent sm:border-b-transparent 
+           sm:border-t-W_four/60
            sm:grid sm:justify-items-center"
           >
             <div>
@@ -124,30 +126,30 @@ const WeatherDetail = ({ weather }) => {
        
       </div>
       <div className="grid grid-cols-2 gap-2 justify-items-center
+        text-W_four bg-W_two/60 border-4 border-W_four/60
+        dark:bg-D_one/40 dark:text-D_one
+        rounded-md
         sm:grid sm:justify-items-center">
-          <button
-            onClick={handleToggleTemp}
-            className="bg-black/60 rounded-lg text-2xl border-spacing-2 border-D_four
-          "
+          <button 
+            onClick={handleToggleTemp} 
           >
             {unit === "F°" ? (
               <IconTemperatureCelsius
-                className="text-W_three bg-W_one
-             dark:bg-D_one dark:text-D_four overflow-hidden"
+                className=" overflow-hidden"
               />
             ) : (
               <IconTemperatureFahrenheit
-                className="text-W_three bg-W_one 
-             dark:bg-D_one dark:text-D_four overflow-hidden"
+                className=" overflow-hidden"
               />
             )}
           </button>
+          
           <button onClick={handleToggleTheme} className="rounded-lg text-2xl ">
             <IconMoonFilled
-              className="dark:bg-D_one dark:text-D_four text-W_three bg-W_one 
+              className=" 
            overflow-hidden  dark:hidden"
             />
-            <IconSunFilled className="hidden dark:block dark:bg-D_one dark:text-D_four text-W_three bg-W_one" />
+            <IconSunFilled className="hidden dark:block" />
           </button>
         </div>
     </article>
