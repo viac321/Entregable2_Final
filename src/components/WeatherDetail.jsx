@@ -52,21 +52,20 @@ const WeatherDetail = ({ weather }) => {
 
   return (
     <article
-      className="text-center grid gap-4  
-    sm:grid"
+      className="text-center grid gap-4 "
     >
-      <h3
-        className="text-2xl rounded-md text-W_four bg-W_one/60
-       dark:bg-D_one/40 dark:text-D_four "
-      >
-        {weather.name}, {weather.sys.country}
-      </h3>
-      <div className="grid gap-4">
-        {/*seccion: temp, descripcion e imagen*/}
+      <div className="grid gap-4 sm:grid-cols-[1fr_auto] ">
         <section
           className="bg-W_one/60 text-W_two
-         dark:bg-D_one/40 dark:text-D_four p-2 rounded-xl"
+         dark:bg-D_one/40 dark:text-D_four p-2 rounded-md
+         sm:grid "
         >
+          {/*encabezado*/}
+          <h3 className="text-2xl rounded-md text-W_four dark:text-D_four ">
+            {weather.name}, {weather.sys.country}
+          </h3>
+
+          {/*seccion: temp, descripcion e imagen*/}
           <h3 className="text-2xl">{weather.weather[0].description}</h3>
           <span className="text-2xl">
             {Math.floor(temp)}
@@ -83,12 +82,14 @@ const WeatherDetail = ({ weather }) => {
 
         {/*sec2: detalles adicionales del clima*/}
         <section
-          className="grid grid-cols-3 justify-items-center
-           text-2xl"
+          className="flex justify-items-center
+           text-2xl sm:col-span-1 sm:block sm:grid-rows-auto gap-1"
         >
           <div
-            className="flex justify-items-center  text-W_two bg-W_one/60
-           dark:bg-D_one/40 dark:text-D_four rounded-xl p-2"
+            className="text-W_two bg-W_one/60
+           dark:bg-D_one/40 dark:text-D_four rounded-xl p-4
+           grid justify-items-center sm:col-start-2
+           sm:grid sm:justify-items-center"
           >
             <div>
               <img src="/wind.svg" alt="Velocidad del viento" />
@@ -97,8 +98,10 @@ const WeatherDetail = ({ weather }) => {
           </div>
 
           <div
-            className="flex justify-items-center  text-W_two bg-W_one/60 
-          dark:bg-D_one/40 dark:text-D_four rounded-xl p-2"
+            className="text-W_two bg-W_one/60 
+          dark:bg-D_one/40 dark:text-D_four rounded-xl p-2
+          grid justify-items-center
+          sm:grid sm:justify-items-center"
           >
             <div>
               <img src="/humidity.svg" alt="Humedad" />
@@ -107,8 +110,10 @@ const WeatherDetail = ({ weather }) => {
           </div>
 
           <div
-            className="flex justify-items-center  text-W_two bg-W_one/60
-           dark:bg-D_one/40 dark:text-D_four rounded-xl p-2"
+            className="text-W_two bg-W_one/60
+           dark:bg-D_one/40 dark:text-D_four rounded-xl p-2
+           grid justify-items-center
+           sm:grid sm:justify-items-center"
           >
             <div>
               <img src="/pressure.svg" alt="Presión" />
@@ -116,10 +121,14 @@ const WeatherDetail = ({ weather }) => {
             <span>{weather.main.pressure} hpa</span>
           </div>
         </section>
-        <div className="grid grid-cols-2 gap-2 justify-items-center">
+       
+      </div>
+      <div className="grid grid-cols-2 gap-2 justify-items-center
+        sm:grid sm:justify-items-center">
           <button
             onClick={handleToggleTemp}
-            className="bg-black/60 rounded-lg text-2xl border-spacing-2 border-D_four"
+            className="bg-black/60 rounded-lg text-2xl border-spacing-2 border-D_four
+          "
           >
             {unit === "F°" ? (
               <IconTemperatureCelsius
@@ -141,7 +150,6 @@ const WeatherDetail = ({ weather }) => {
             <IconSunFilled className="hidden dark:block dark:bg-D_one dark:text-D_four text-W_three bg-W_one" />
           </button>
         </div>
-      </div>
     </article>
   );
 };

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import WeatherDetail from "./components/WeatherDetail";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import "./App.css"
+import "./components/WeatherSearch.jsx"
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -26,7 +27,7 @@ function App() {
   }, []);
 
   return (
-    <main className="bg-mist" >
+    <main className="bg-cover" style={{ backgroundImage: `url(/bg${weather?.weather[0].icon}.webp)` }} >
       <div className="flex justify-center items-center h-screen">
         <h1 className="text-4xl"></h1>
         {weather ? (
